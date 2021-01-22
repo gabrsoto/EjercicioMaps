@@ -20,9 +20,9 @@ public class StringUtil {
 
         int valueMax = 0;
 
-        for (int i = 0; i < arr.length; i++) {
-            if(valueMax == 0 || valueMax < arr[i].length())
-                valueMax = arr[i].length();
+        for (String element : arr) {
+            if(valueMax == 0 || valueMax < element.length())
+                valueMax = element.length();
         }
 
         for (int i = 0; i < arr.length; i++) {
@@ -31,7 +31,7 @@ public class StringUtil {
     }
 
     private static ArrayList<String> Assigne_Position(ArrayList<String>  arr, int indexSearch){
-        ArrayList arrResult = new ArrayList();
+        ArrayList<String> arrResult = new ArrayList<>();
         HashMap<String, ArrayList<String>> hmListas = new HashMap<>();
 
         for (int i = 0; i < 10; i++) {
@@ -45,10 +45,8 @@ public class StringUtil {
         }
 
         for (int i = 0; i < 10; i++) {
-            ArrayList<String> lstIndex = hmListas.get("L"+i);
-            for (String element : lstIndex) {
-                arrResult.add(element);
-            }
+            ArrayList<String>  lstIndex = hmListas.get("L"+i);
+            arrResult.addAll(lstIndex);
         }
 
         return arrResult;
