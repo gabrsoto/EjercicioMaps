@@ -26,7 +26,7 @@ public class StringUtil {
         }
 
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = String.format("%"+valueMax+"s",arr[i]).replace(' ','0');
+            arr[i] = lPad(arr[i], '0',valueMax);
         }
     }
 
@@ -70,5 +70,45 @@ public class StringUtil {
         }
 
         return arrSort;
+    }
+
+    private static String lPad(String text, char character, int count){
+        return String.format("%"+count+"s",text).replace(' ',character);
+    }
+
+    private static String rPad(String text, char character, int count){
+        return text + String.format("%"+count+"s","").replace(' ',character);
+    }
+
+    public static String LTrim( String text){
+        int start = 0;
+        while (start < text.length() && Character.isWhitespace(text.charAt(start))) {
+            start++;
+        }
+
+        return text.substring(start);
+    }
+
+    public static String RTrim(String text){
+        int end = text.length()-1;
+        while (end >= 0 && Character.isWhitespace(text.charAt(end))) {
+            end--;
+        }
+        return text.substring(0,end+1);
+    }
+
+    public static String Trim(String text){
+        text = LTrim(text);
+        text = RTrim(text);
+        return text;
+    }
+
+    public static int IndexOfN(String text, String character, int index){
+        int location = -1;
+
+        if(text.indexOf(character,index) != 0)
+            location = text.indexOf(character);
+
+        return location;
     }
 }

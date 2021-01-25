@@ -20,5 +20,12 @@ public class RadiXSort {
         for (int i = 0; i < newArr.length; i++)
             arr[i] = newArr[i];
 
+        String test = "   prueba  ";
+        test = StringUtil.LTrim(test);
+        test = StringUtil.RTrim(test);
+
+        test = "    prueba       ";
+
+        test = StringUtil.Trim(test);
     }
 }
